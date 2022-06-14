@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/reset.css";
+import "./App.css";
+import Header from "./components/Header";
+import Button from './components/Button';
+import Form from "./components/Form";
+import CounterParent from "./components/CounterParent";
 
-function App() {
+export default function App() {
+  
+  const btnTexts = [
+    {
+      id: 1,
+      text: 'Button 1',
+    },
+    {
+      id: 2,
+      text: 'Button 2',
+    },
+    {
+      id: 3,
+      text: 'Button 3',
+    },
+    {
+      id: 4,
+      text: 'Button 4',
+    }
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Header /> */}
+      <div className="MainContent">
+        {/* {
+          btnTexts.filter((object) => object.id < 4).map(item => {
+            return (
+              <Button key={item.id} text={item.text} />
+            )
+          })
+        } */}
+        {/* <Form /> */}
+        <CounterParent />
+      </div>
     </div>
   );
 }
-
-export default App;
