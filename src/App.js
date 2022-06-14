@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Button from './components/Button';
 import Form from "./components/Form";
 import CounterParent from "./components/CounterParent";
+import TodoApp from "./components/TodoApp";
 
 export default function App() {
   
@@ -38,7 +39,8 @@ export default function App() {
           })
         } */}
         {/* <Form /> */}
-        <CounterParent />
+        {/* <CounterParent /> */}
+        <TodoApp />
       </div>
     </div>
   );

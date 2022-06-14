@@ -35,3 +35,20 @@
   border-radius: 32px;
   border: 1px solid grey;
 }
+
+.ul {
+  margin-top: 40px;
+  border: 1px solid black;
+  padding: 5px 1px;
+  border-radius: 6px;
+  list-style: circle;
+}
+
+.lists {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.done {
+  text-decoration: line-through;
+}
