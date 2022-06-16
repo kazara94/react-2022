@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
-  const navigation = ["Home", "About", "Contact"];
+  const navigation = ["Home", "About", "Contact", "Products"];
   return (
     <header>
       <nav>
@@ -7,12 +9,21 @@ export default function Header() {
           {navigation.map((li, index) => {
             return (
               <li key={index}>
-                <a className="navLink" href={`/${li}`}>
+                <Link className="navLink" to={`${li === 'Home' ? '/' : li}`}>
                   {li}
-                </a>
+                </Link>
               </li>
             );
           })}
+          {/* <li>
+            <Link to={'/'} className="navLink">Home</Link>
+          </li>
+          <li>
+            <Link to={'about'} className="navLink">About</Link>
+          </li>
+          <li>
+            <Link to={'contact'} className="navLink">Contact</Link>
+          </li> */}
         </ul>
       </nav>
     </header>
