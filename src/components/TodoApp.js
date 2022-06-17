@@ -5,7 +5,9 @@ import TodoItem from "./TodoItem";
 const _todoItems = [
   { id: 1, text: "Text 1", completed: true },
   { id: 2, text: "Text 2", completed: false },
-  { id: 3, text: "Text 3", completed: true }
+  { id: 3, text: "Text 3", completed: true },
+  { id: 4, text: "Text 4", completed: true },
+  { id: 5, text: "Text 5", completed: true },
 ];
 
 export default function TodoApp() {
@@ -13,7 +15,7 @@ export default function TodoApp() {
   const [todoItems, setTodoItems] = useState(_todoItems);
   const input = useRef();
 
-  console.log(input.current);
+  // console.log(input.current);
 
   useEffect(() => {
     input.current.focus();
@@ -27,7 +29,9 @@ export default function TodoApp() {
       completed: false
     };
     setInputValue("");
-    setTodoItems([todoItem, ...todoItems]);
+   if (inputValue !== '') {
+      setTodoItems([todoItem, ...todoItems]);
+   }
   }
 
   function checking(id) {
@@ -39,7 +43,23 @@ export default function TodoApp() {
     });
     setTodoItems(changedArray);
   }
+  // function deleteItem(index) {
+  //   let newArray = [...todoItems]
+  //   newArray.splice(index, 1)
 
+  //   // setTodoItems(deleteArray.filter(item => item.id !== id));
+  //   setTodoItems(newArray);
+  // }
+  function deleteItem(id) {
+    let newArray = [...todoItems]
+    let index = newArray.findIndex(o => o.id === id)
+    // let filterArray = newArray.filter(o => o.id !== id)
+    if (index > -1) {
+    // if (filterArray.length > 0)
+      newArray.splice(index, 1)
+    }
+    setTodoItems(newArray);
+  }
   return (
     <div className="Counter">
       <h3>Todo App</h3>
@@ -58,10 +78,12 @@ export default function TodoApp() {
           return (
             <TodoItem
               key={index}
+              index={index}
               completed={item.completed}
               id={item.id}
               text={item.text}
               onChangePassed={checking}
+              onDelete={deleteItem}
             />
           );
         })}
